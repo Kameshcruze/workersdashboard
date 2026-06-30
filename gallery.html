@@ -1,0 +1,1415 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CLBQRW1S9X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CLBQRW1S9X');
+</script>
+
+  <title>Virukshaa Events | Gallery</title>
+  <link rel="icon" type="image/png" href="assets/Favicon.png">
+  <link rel="shortcut icon" type="image/png" href="assets/Favicon.png">
+  <link rel="apple-touch-icon" href="assets/Favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="preload" as="font" href="assets/Fonts/angelina_malika/angelina-malika.ttf?v=3" type="font/ttf" crossorigin />
+
+  <style>
+    @font-face {
+      font-family: "Angelina Malika";
+      src: local("Angelina Malika"),
+        url("/assets/Fonts/angelina_malika/angelina-malika.ttf?v=3") format("truetype"),
+        url("assets/Fonts/angelina_malika/angelina-malika.ttf?v=3") format("truetype"),
+        url("/assets/fonts/angelina_malika/angelina-malika.ttf?v=3") format("truetype"),
+        url("assets/fonts/angelina_malika/angelina-malika.ttf?v=3") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    :root {
+      --text-dark: #171717;
+      --text-light: #525252;
+      --white: #ffffff;
+      --gold: #b88a44;
+      --page-bg: #0c0c0e;
+      --panel: #111214;
+      --border: rgba(255, 255, 255, 0.08);
+      --max-width: 1200px;
+      --header-font: "Merriweather", serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.8)),
+        radial-gradient(circle at top, rgba(184, 138, 68, 0.16), transparent 30%),
+        var(--page-bg);
+      color: var(--white);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page-header {
+      min-height: 340px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.78)),
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 45%),
+        url("assets/banner2.jpeg") center center / cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.55), transparent 35%, transparent 65%, rgba(0, 0, 0, 0.55)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0));
+      pointer-events: none;
+    }
+
+    nav {
+      position: fixed;
+      isolation: isolate;
+      top: 0;
+      width: 100%;
+      max-width: var(--max-width);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    nav.nav-hidden {
+      transform: translate(-50%, -140%);
+      opacity: 0;
+    }
+
+    .nav__header {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background-color: rgba(23, 23, 23, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav__logo img {
+      max-width: 70px;
+    }
+
+    .nav__menu__btn {
+      font-size: 1.5rem;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .nav__links {
+      list-style: none;
+      position: absolute;
+      width: 100%;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 2rem;
+      background-color: rgba(23, 23, 23, 0.96);
+      transform: translateY(-100%);
+      transition: 0.35s ease;
+      z-index: -1;
+    }
+
+    .nav__links.open {
+      transform: translateY(0);
+    }
+
+    .nav__links .nav__logo {
+      display: none;
+    }
+
+    .nav__links a {
+      padding-bottom: 5px;
+      font-weight: 500;
+      color: var(--white);
+      border-bottom: 2px solid transparent;
+      letter-spacing: 0.04em;
+    }
+
+    .nav__links a:hover,
+    .nav__links a.active {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .nav__socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav__socials a {
+      font-size: 22px;
+      color: var(--white);
+      transition: 0.3s;
+    }
+
+    .nav__socials a:hover {
+      color: var(--gold);
+    }
+
+    .hero-copy {
+      min-height: 340px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 7.5rem 1rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.05rem, 4.2vw, 3.9rem);
+      font-family: "Angelina Malika", cursive;
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      color: var(--white);
+      text-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+      white-space: nowrap;
+    }
+
+    .hero-copy h1 span {
+      color: inherit;
+    }
+
+    .gallery-wrap {
+      width: min(100%, 1500px);
+      margin: 0 auto;
+      padding: 0 12px 4rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      grid-auto-flow: dense;
+      background: #0c0c0e;
+      padding: 8px;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 170px;
+      background: var(--panel);
+      cursor: pointer;
+      content-visibility: auto;
+      contain-intrinsic-size: 240px 220px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: transform 0.65s ease, opacity 0.65s ease;
+    }
+
+    .gallery-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-card img,
+    .gallery-card video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.035);
+      transition: transform 0.7s ease, filter 0.45s ease, opacity 0.55s ease;
+    }
+
+    .gallery-card.is-loaded img,
+    .gallery-card.is-loaded video {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .gallery-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          110deg,
+          rgba(255, 255, 255, 0.03) 8%,
+          rgba(255, 255, 255, 0.16) 18%,
+          rgba(255, 255, 255, 0.03) 33%
+        ),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.16));
+      background-size: 220% 100%, 100% 100%;
+      animation: galleryShimmer 1.3s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card.is-loaded::before {
+      opacity: 0;
+    }
+
+    .gallery-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.35));
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 1;
+    }
+
+    .gallery-card:hover img,
+    .gallery-card:hover video {
+      transform: scale(1.04);
+      filter: saturate(1.05);
+    }
+
+    .gallery-card:hover::after {
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-card,
+      .gallery-card img,
+      .gallery-card video,
+      .gallery-card::before,
+      .gallery-card::after {
+        transition: none;
+        animation: none;
+      }
+    }
+
+    @keyframes galleryShimmer {
+      0% {
+        background-position: 120% 0, 0 0;
+      }
+      100% {
+        background-position: -120% 0, 0 0;
+      }
+    }
+
+    .gallery-card:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: -3px;
+    }
+
+    .wide {
+      grid-column: span 2;
+    }
+
+    .tall {
+      grid-row: span 2;
+      min-height: 348px;
+    }
+
+    .hero-tile {
+      min-height: 290px;
+    }
+
+    .floating-btn {
+      position: fixed;
+      bottom: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: #fff;
+      z-index: 999;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s ease;
+    }
+
+    .floating-btn.whatsapp {
+      right: 24px;
+      background-color: #25d366;
+    }
+
+    .floating-btn.call {
+      left: 24px;
+      background-color: #111;
+      animation: none;
+    }
+
+    .floating-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .floating-btn.call.attention {
+      animation: popShake 1.2s ease forwards;
+    }
+
+    .floating-btn.call::after {
+      content: "Contact us";
+      position: absolute;
+      left: 70px;
+      white-space: nowrap;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .floating-btn.call.show-tooltip::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 56px;
+      height: 56px;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #f8f3e8;
+      background: linear-gradient(135deg, #567c63, #2f5d45);
+      box-shadow: 0 10px 24px rgba(31, 53, 39, 0.24);
+      cursor: pointer;
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(16px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    }
+
+    .scroll-top-btn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .scroll-top-btn:hover {
+      transform: translateY(0) scale(1.05);
+      box-shadow: 0 12px 28px rgba(31, 53, 39, 0.3);
+    }
+
+    .quote-chip {
+      position: fixed;
+      right: 96px;
+      bottom: 42px;
+      z-index: 998;
+      border: 1px solid rgba(17, 17, 17, 0.15);
+      background: #ffffff;
+      color: #111111;
+      padding: 0.85rem 1.15rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      padding: 20px;
+    }
+
+    .popup-box {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      padding: 30px 25px;
+      border-radius: 16px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 0.3s ease-in-out;
+      color: #111111;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .popup-box h2 {
+      margin-bottom: 15px;
+      font-family: var(--header-font);
+    }
+
+    .popup-box p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .call-btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: var(--gold);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .call-btn:hover {
+      background: #9c7235;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99998;
+      padding: 2rem 5rem;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox__image,
+    .lightbox__video {
+      max-width: min(1200px, 100%);
+      max-height: 82vh;
+      object-fit: contain;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    .lightbox__video {
+      display: none;
+      width: min(1200px, 100%);
+      background: #000;
+    }
+
+    .lightbox__close,
+    .lightbox__nav {
+      position: absolute;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      backdrop-filter: blur(8px);
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .lightbox__close:hover,
+    .lightbox__nav:hover {
+      background: rgba(184, 138, 68, 0.9);
+      transform: scale(1.04);
+    }
+
+    .lightbox__close {
+      top: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.6rem;
+    }
+
+    .lightbox__nav {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      font-size: 1.75rem;
+    }
+
+    .lightbox__nav--prev {
+      left: 24px;
+    }
+
+    .lightbox__nav--next {
+      right: 24px;
+    }
+
+    footer {
+      background:
+        radial-gradient(circle at top left, rgba(31, 106, 59, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(77, 145, 98, 0.16), transparent 30%),
+        linear-gradient(135deg, #ffffff 0%, #f3fbf4 22%, #e1f3e4 58%, #cfe8d5 100%);
+      margin-top: 2rem;
+    }
+
+    .section__container {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 5rem 1rem;
+    }
+
+    .footer__container {
+      display: grid;
+      gap: 4rem 0;
+      align-items: center;
+    }
+
+    .footer__col {
+      padding-inline: 2rem;
+    }
+
+    .footer__container img {
+      max-width: 170px;
+      margin-inline: auto;
+      margin-bottom: 2rem;
+    }
+
+    .footer__socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer__socials a {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .footer__socials a:hover {
+      color: var(--text-light);
+    }
+
+    .footer__links {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .footer__links a {
+      display: block;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: center;
+    }
+
+    .footer__links a:hover {
+      color: var(--text-light);
+    }
+
+    .footer__col h4 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: center;
+    }
+
+    .footer__col p {
+      color: var(--text-light);
+      line-height: 1.75rem;
+      text-align: center;
+    }
+
+    .footer__bar {
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #a3a3a3;
+      background-color: var(--text-dark);
+      text-align: center;
+    }
+
+    @keyframes popShake {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      40% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+
+      60% {
+        transform: scale(0.95) rotate(-8deg);
+      }
+
+      75% {
+        transform: scale(1.05) rotate(8deg);
+      }
+
+      100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        left: 0;
+        transform: none;
+        max-width: none;
+      }
+
+      nav.nav-hidden {
+        transform: translateY(-140%);
+        opacity: 0;
+      }
+
+      .nav__header {
+        position: relative;
+        justify-content: flex-end;
+      }
+
+      .nav__header .nav__logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .nav__header .nav__logo img {
+        max-width: 120px;
+      }
+
+      .nav__menu__btn {
+        position: relative;
+        z-index: 2;
+      }
+
+      .nav__socials {
+        position: absolute;
+        top: 18px;
+        left: 20px;
+      }
+
+      .nav__socials a {
+        font-size: 20px;
+      }
+
+      .page-header {
+        min-height: 300px;
+        background-position: 76% center;
+      }
+
+      .hero-copy {
+        min-height: 300px;
+        padding: 6.8rem 1rem 2.75rem;
+      }
+
+    .hero-copy h1 {
+      font-size: 2rem;
+      white-space: nowrap;
+    }
+
+      .gallery-wrap {
+        padding-bottom: 7rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+        padding: 6px;
+      }
+
+      .gallery-card {
+        min-height: 120px;
+      }
+
+      .gallery-card.mobile-wide,
+      .wide,
+      .hero-tile {
+        grid-column: 1 / -1;
+      }
+
+      .tall {
+        min-height: 245px;
+        grid-row: span 1;
+      }
+
+      .quote-chip {
+        right: 78px;
+        bottom: 96px;
+        padding: 0.7rem 0.95rem;
+        font-size: 0.78rem;
+      }
+
+      .floating-btn.whatsapp {
+        right: 20px;
+        bottom: 88px;
+      }
+
+      .floating-btn.call {
+        right: 20px;
+        left: auto;
+        bottom: 156px;
+      }
+
+      .floating-btn.call::after {
+        left: auto;
+        right: 70px;
+      }
+
+      .scroll-top-btn {
+        right: 20px;
+        bottom: 20px;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+      }
+
+      .lightbox {
+        padding: 1.5rem 1rem 6rem;
+      }
+
+      .lightbox__image,
+      .lightbox__video {
+        max-height: 72vh;
+      }
+
+      .lightbox__close {
+        top: 16px;
+        right: 16px;
+      }
+
+      .lightbox__nav {
+        top: auto;
+        bottom: 20px;
+        transform: none;
+        width: 50px;
+        height: 50px;
+      }
+
+      .lightbox__nav--prev {
+        left: calc(50% - 62px);
+      }
+
+      .lightbox__nav--next {
+        right: calc(50% - 62px);
+      }
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        padding: 2rem 1rem;
+        position: fixed;
+        width: min(1200px, calc(100% - 2rem));
+      }
+
+      .nav__header {
+        display: none;
+      }
+
+      .nav__links {
+        padding: 0;
+        width: 100%;
+        position: static;
+        transform: none;
+        display: grid;
+        grid-template-columns: repeat(3, max-content) 150px repeat(3, max-content);
+        justify-content: center;
+        align-items: center;
+        column-gap: 30px;
+        row-gap: 0;
+        background-color: transparent;
+      }
+
+      .nav__links .nav__logo {
+        display: block;
+        grid-column: 4;
+      }
+
+      .nav__links .nav__logo img {
+        max-width: 150px;
+      }
+
+      .nav__links li:nth-child(1) {
+        grid-column: 1;
+      }
+
+      .nav__links li:nth-child(2) {
+        grid-column: 2;
+      }
+
+      .nav__links li:nth-child(3) {
+        grid-column: 3;
+      }
+
+      .nav__links li:nth-child(5) {
+        grid-column: 5;
+      }
+
+      .nav__links li:nth-child(6) {
+        grid-column: 6;
+      }
+
+      .nav__links li:nth-child(7) {
+        grid-column: 7;
+      }
+
+      .nav__socials {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        justify-content: flex-end;
+      }
+
+      .footer__container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer__col:nth-child(1) {
+        grid-area: 1/2/2/3;
+        border-left: 2px solid var(--text-dark);
+        border-right: 2px solid var(--text-dark);
+      }
+
+      .footer__col:nth-child(3) {
+        border: none;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tall {
+        grid-row: span 1;
+        min-height: 250px;
+      }
+
+      .wide,
+      .hero-tile {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 540px) and (max-width: 767px) {
+      .footer__container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer__col:nth-child(1) {
+        grid-area: 1/1/2/3;
+      }
+
+      .footer__col:nth-child(3) {
+        border-left: 2px solid var(--text-dark);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="page-header" id="top">
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="index.html">
+            <img loading="eager" decoding="async" fetchpriority="high" src="assets/Virukshaa-png-font.png" alt="Viruksha Events logo" />
+          </a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn" aria-label="Open menu">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html#home">HOME</a></li>
+        <li><a href="index.html#about">ABOUT US</a></li>
+        <li><a href="index.html#service">SERVICES</a></li>
+        <li class="nav__logo">
+          <a href="index.html">
+            <img loading="eager" decoding="async" fetchpriority="high" src="assets/logo-white.png" alt="Viruksha Events logo" />
+          </a>
+        </li>
+        <li><a href="index.html#client">CLIENT</a></li>
+        <li><a href="gallery.html" class="active">GALLERY</a></li>
+        <li><a href="contact-us.html">CONTACT US</a></li>
+      </ul>
+
+      <div class="nav__socials">
+        <a href="https://www.instagram.com/virukshaa_events?igsh=MWUzZDQwejh6eHkxdQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="ri-instagram-line"></i>
+        </a>
+        <a href="https://www.facebook.com/share/14basvDqmqv/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="ri-facebook-fill"></i>
+        </a>
+      </div>
+    </nav>
+
+    <div class="hero-copy">
+      <h1>Moments We Decorated</h1>
+    </div>
+  </header>
+
+  <main class="gallery-wrap">
+    <section class="gallery-grid" aria-label="Gallery image grid" data-gallery-full></section>
+  </main>
+
+  <footer id="contact">
+    <div class="section__container footer__container">
+      <div class="footer__col">
+        <img loading="lazy" decoding="async" fetchpriority="low" src="assets/logo-dark.png" alt="logo" />
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/share/14basvDqmqv/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+          <a href="https://www.instagram.com/virukshaa_events?igsh=MWUzZDQwejh6eHkxdQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="https://www.instagram.com/virukshaa_events?igsh=MWUzZDQwejh6eHkxdQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ri-twitter-fill"></i></a>
+          <a href="https://www.instagram.com/virukshaa_events?igsh=MWUzZDQwejh6eHkxdQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ri-youtube-fill"></i></a>
+          <a href="https://www.instagram.com/virukshaa_events?igsh=MWUzZDQwejh6eHkxdQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ri-pinterest-line"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <ul class="footer__links">
+          <li><a href="index.html#home">HOME</a></li>
+          <li><a href="index.html#about">ABOUT US</a></li>
+          <li><a href="index.html#service">SERVICES</a></li>
+          <li><a href="index.html#client">CLIENT</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li><a href="contact-us.html">CONTACT US</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bar">
+      Copyright© 2026 Viruksha Events. All rights reserved.
+    </div>
+  </footer>
+
+  <button class="quote-chip" id="quoteTrigger" type="button">Get Quick Quote</button>
+
+  <a href="https://wa.me/919999999999" class="floating-btn whatsapp" target="_blank" aria-label="WhatsApp">
+    <i class="ri-whatsapp-line"></i>
+  </a>
+
+  <a href="tel:+919999999999" class="floating-btn call" aria-label="Call">
+    <i class="ri-phone-line"></i>
+  </a>
+
+  <button class="scroll-top-btn" id="scrollTopBtn" type="button" aria-label="Go to top">
+    <i class="ri-arrow-up-s-line"></i>
+  </button>
+
+  <div id="callPopup" class="popup-overlay">
+    <div class="popup-box">
+      <span class="popup-close" id="closePopup">&times;</span>
+      <h2>Plan Your Perfect Event</h2>
+      <p>Call Viruksha Events now to know more details and discuss your package.</p>
+      <a href="tel:+919566609210" class="call-btn">Call Now</a>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close image viewer">
+      <i class="ri-close-line"></i>
+    </button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" type="button" aria-label="Previous image">
+      <i class="ri-arrow-left-s-line"></i>
+    </button>
+    <img loading="lazy" decoding="async" fetchpriority="low" class="lightbox__image" id="lightboxImage" src="" alt="" />
+    <video class="lightbox__video" id="lightboxVideo" controls playsinline></video>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" type="button" aria-label="Next image">
+      <i class="ri-arrow-right-s-line"></i>
+    </button>
+  </div>
+
+  <script src="gallery-data.js"></script>
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const navLinks = document.getElementById("nav-links");
+    const menuIcon = menuBtn ? menuBtn.querySelector("i") : null;
+    const siteNav = document.querySelector("nav");
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    let lastScrollY = window.scrollY;
+
+    if (menuBtn && navLinks && menuIcon) {
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        siteNav?.classList.remove("nav-hidden");
+        menuIcon.setAttribute("class", navLinks.classList.contains("open") ? "ri-close-line" : "ri-menu-line");
+      });
+
+      navLinks.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuIcon.setAttribute("class", "ri-menu-line");
+      });
+    }
+
+    const popup = document.getElementById("callPopup");
+    const closeBtn = document.getElementById("closePopup");
+    const quoteTrigger = document.getElementById("quoteTrigger");
+    const galleryCards = Array.from(document.querySelectorAll(".gallery-card"));
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxVideo = document.getElementById("lightboxVideo");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+    let currentImageIndex = 0;
+
+    const openPopup = () => {
+      popup.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    };
+
+    const closePopup = () => {
+      popup.style.display = "none";
+      document.body.style.overflow = "auto";
+    };
+
+    if (quoteTrigger) {
+      quoteTrigger.addEventListener("click", openPopup);
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closePopup);
+    }
+
+    if (popup) {
+      popup.addEventListener("click", (event) => {
+        if (event.target === popup) {
+          closePopup();
+        }
+      });
+
+      setTimeout(openPopup, 10000);
+    }
+
+    const markGalleryCardLoaded = (card) => {
+      card.classList.add("is-loaded");
+    };
+
+    const hydrateCardImage = (image) => {
+      if (!image || !image.dataset.src || image.dataset.hydrated === "true") return;
+
+      image.src = image.dataset.src;
+      image.dataset.hydrated = "true";
+    };
+
+    const hydrateCardVideo = (video, preload = "metadata") => {
+      if (!video || video.dataset.hydrated === "true") return;
+
+      const source = video.querySelector("source");
+      if (!source?.dataset.src) return;
+
+      source.src = source.dataset.src;
+      video.preload = preload;
+      video.load();
+      video.dataset.hydrated = "true";
+    };
+
+    const hydrateCardMedia = (card, options = {}) => {
+      const { priority = false } = options;
+      const cardImage = card?.querySelector("img");
+      const cardVideo = card?.querySelector("video");
+
+      if (cardImage) {
+        hydrateCardImage(cardImage);
+      }
+
+      if (cardVideo) {
+        hydrateCardVideo(cardVideo, priority ? "auto" : "metadata");
+      }
+    };
+
+    galleryCards.forEach((card) => {
+      const cardImage = card.querySelector("img");
+      const cardVideo = card.querySelector("video");
+
+      if (cardImage) {
+        if (cardImage.complete) {
+          markGalleryCardLoaded(card);
+        } else {
+          cardImage.addEventListener("load", () => markGalleryCardLoaded(card), { once: true });
+          cardImage.addEventListener("error", () => markGalleryCardLoaded(card), { once: true });
+        }
+      }
+
+      if (cardVideo) {
+        const markVideoReady = () => markGalleryCardLoaded(card);
+        cardVideo.addEventListener("loadeddata", markVideoReady, { once: true });
+        cardVideo.addEventListener("error", markVideoReady, { once: true });
+      }
+    });
+
+    const primeGalleryVideo = (video) => {
+      if (!video || video.dataset.primed === "true") return;
+
+      hydrateCardVideo(video, "metadata");
+      video.dataset.primed = "true";
+    };
+
+    galleryCards.slice(0, 6).forEach((card) => {
+      hydrateCardMedia(card, { priority: true });
+    });
+
+    if ("IntersectionObserver" in window) {
+      const galleryCardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const card = entry.target;
+          const cardVideo = card.querySelector("video");
+          const isVisible = entry.isIntersecting;
+
+          if (isVisible || entry.boundingClientRect.top < window.innerHeight * 1.8) {
+            hydrateCardMedia(card, { priority: isVisible });
+          }
+
+          if (cardVideo && isVisible) {
+            primeGalleryVideo(cardVideo);
+            cardVideo.play().catch(() => {});
+          } else if (cardVideo && entry.boundingClientRect.top < window.innerHeight * 1.6) {
+            primeGalleryVideo(cardVideo);
+          }
+
+          if (!isVisible) return;
+
+          card.classList.add("is-visible");
+
+          if (cardVideo) {
+            cardVideo.play().catch(() => {});
+          }
+
+          galleryCardObserver.unobserve(card);
+        });
+      }, {
+        rootMargin: "900px 0px",
+        threshold: 0.01,
+      });
+
+      galleryCards.forEach((card) => {
+        const cardVideo = card.querySelector("video");
+        if (cardVideo && card.getBoundingClientRect().top < window.innerHeight * 1.6) {
+          primeGalleryVideo(cardVideo);
+        }
+
+        galleryCardObserver.observe(card);
+      });
+    } else {
+      galleryCards.forEach((card) => {
+        const cardVideo = card.querySelector("video");
+        if (cardVideo) {
+          primeGalleryVideo(cardVideo);
+          cardVideo.play().catch(() => {});
+        }
+      });
+    }
+
+    const renderLightbox = (index) => {
+      const card = galleryCards[index];
+      hydrateCardMedia(card, { priority: true });
+      const image = card?.querySelector("img");
+      const video = card?.querySelector("video");
+
+      if (!image && !video) return;
+
+      currentImageIndex = index;
+
+      if (image) {
+        lightboxImage.style.display = "block";
+        lightboxVideo.style.display = "none";
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute("src");
+        lightboxVideo.load();
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+      }
+
+      if (video) {
+        const source = video.querySelector("source");
+        const videoSrc = source ? (source.getAttribute("src") || source.dataset.src) : video.getAttribute("src");
+        lightboxImage.style.display = "none";
+        lightboxImage.src = "";
+        lightboxImage.alt = "";
+        lightboxVideo.style.display = "block";
+        lightboxVideo.src = videoSrc;
+        lightboxVideo.currentTime = 0;
+        lightboxVideo.play().catch(() => {});
+      }
+
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+      lightboxImage.style.display = "block";
+      lightboxVideo.pause();
+      lightboxVideo.removeAttribute("src");
+      lightboxVideo.style.display = "none";
+      lightboxVideo.load();
+      document.body.style.overflow = popup && popup.style.display === "flex" ? "hidden" : "auto";
+    };
+
+    const showNext = () => {
+      renderLightbox((currentImageIndex + 1) % galleryCards.length);
+    };
+
+    const showPrev = () => {
+      renderLightbox((currentImageIndex - 1 + galleryCards.length) % galleryCards.length);
+    };
+
+    galleryCards.forEach((card, index) => {
+      card.addEventListener("click", () => renderLightbox(index));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          renderLightbox(index);
+        }
+      });
+    });
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", closeLightbox);
+    }
+
+    if (lightboxNext) {
+      lightboxNext.addEventListener("click", showNext);
+    }
+
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener("click", showPrev);
+    }
+
+    if (lightbox) {
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+    }
+
+    window.addEventListener("load", () => {
+      const callBtn = document.querySelector(".floating-btn.call");
+
+      if (!callBtn) return;
+
+      setTimeout(() => {
+        callBtn.classList.add("attention", "show-tooltip");
+
+        setTimeout(() => {
+          callBtn.classList.remove("show-tooltip");
+        }, 3000);
+      }, 1200);
+    });
+
+    const handlePageScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (scrollTopBtn) {
+        scrollTopBtn.classList.toggle("show", currentScrollY > 120);
+      }
+
+      if (siteNav && !navLinks.classList.contains("open")) {
+        const shouldHideNav = currentScrollY > 140 && currentScrollY > lastScrollY;
+        siteNav.classList.toggle("nav-hidden", shouldHideNav);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    let isScrollTicking = false;
+    const requestPageScrollUpdate = () => {
+      if (isScrollTicking) return;
+
+      isScrollTicking = true;
+      window.requestAnimationFrame(() => {
+        handlePageScroll();
+        isScrollTicking = false;
+      });
+    };
+
+    window.addEventListener("scroll", requestPageScrollUpdate, { passive: true });
+    handlePageScroll();
+
+    if (scrollTopBtn) {
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox || !lightbox.classList.contains("open")) return;
+
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowRight") showNext();
+      if (event.key === "ArrowLeft") showPrev();
+    });
+  </script>
+</body>
+
+</html>

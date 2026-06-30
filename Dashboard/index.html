@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virukshaa Workers Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Virukshaa</p>
+          <h1 id="page-title">Workers Dashboard</h1>
+          <p class="subtitle">Track daily shifts, variable wages, and payment status for each worker.</p>
+          <p class="app-status" id="appStatus" role="status">Loading Google Sheets data...</p>
+        </div>
+        <div class="topbar__actions">
+          <button class="button button--ghost" id="exportBtn" type="button" title="Export records">
+            <span aria-hidden="true">CSV</span>
+            Export
+          </button>
+          <button class="button button--ghost" id="refreshBtn" type="button" title="Refresh from Google Sheets">
+            Refresh
+          </button>
+          <button class="button button--danger" id="resetBtn" type="button" title="Clear all records">
+            Reset
+          </button>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Dashboard summary">
+        <article class="metric">
+          <span class="metric__label">Workers</span>
+          <strong id="totalWorkers">0</strong>
+        </article>
+        <article class="metric">
+          <span class="metric__label">Total Shifts</span>
+          <strong id="totalShifts">0</strong>
+        </article>
+        <article class="metric">
+          <span class="metric__label">Amount Due</span>
+          <strong id="amountDue">₹0</strong>
+        </article>
+        <article class="metric">
+          <span class="metric__label">Paid</span>
+          <strong id="amountPaid">₹0</strong>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <form class="panel worker-form" id="workerForm">
+          <div class="panel__header">
+            <h2>Add Worker</h2>
+          </div>
+          <label>
+            Worker name
+            <input id="workerName" type="text" autocomplete="off" placeholder="Example: Ramesh Kumar" required />
+          </label>
+          <label>
+            Phone number
+            <input id="workerPhone" type="tel" autocomplete="off" placeholder="Optional" />
+          </label>
+          <label>
+            Notes
+            <textarea id="workerNotes" rows="3" placeholder="Role, location, ID, or remarks"></textarea>
+          </label>
+          <button class="button button--primary" type="submit">Add Worker</button>
+        </form>
+
+        <section class="panel entry-panel" aria-labelledby="entry-title">
+          <div class="panel__header">
+            <h2 id="entry-title">Daily Entry</h2>
+          </div>
+          <form class="entry-form" id="shiftForm">
+            <label>
+              Worker
+              <select id="shiftWorker" required></select>
+            </label>
+            <label>
+              Date
+              <input id="shiftDate" type="date" required />
+            </label>
+            <label>
+              Shifts
+              <input id="shiftCount" type="number" min="0.5" step="0.5" value="1" required />
+            </label>
+            <label>
+              Pay per shift
+              <input id="shiftPay" type="number" min="0" step="50" value="1000" required />
+            </label>
+            <label>
+              Payment
+              <select id="paymentStatus">
+                <option value="pending">Pending</option>
+                <option value="paid">Paid</option>
+              </select>
+            </label>
+            <button class="button button--primary" type="submit">Save Entry</button>
+            <p class="entry-feedback" id="entryFeedback" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </section>
+
+      <section class="panel table-panel date-panel" aria-labelledby="datewise-title">
+        <div class="panel__header panel__header--split">
+          <div>
+            <h2 id="datewise-title">Date-wise Work List</h2>
+            <p>Select a date to see every worker who worked on that day.</p>
+          </div>
+          <div class="date-controls">
+            <label>
+              Work date
+              <input id="datewiseInput" type="date" />
+            </label>
+          </div>
+        </div>
+        <div class="date-summary" id="datewiseSummary"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Worker</th>
+                <th>Phone</th>
+                <th>Shifts</th>
+                <th>Pay</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="datewiseTable"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="datewiseEmpty">
+          No worker entries saved for this date.
+        </div>
+      </section>
+
+      <section class="panel table-panel" aria-labelledby="records-title">
+        <div class="panel__header panel__header--split">
+          <div>
+            <h2 id="records-title">Worker Records</h2>
+            <p>Open a worker to review day-wise entries and update payment status.</p>
+          </div>
+          <div class="filters" role="search">
+            <input id="searchInput" type="search" placeholder="Search worker" aria-label="Search worker" />
+            <select id="statusFilter" aria-label="Filter by payment status">
+              <option value="all">All</option>
+              <option value="pending">Pending</option>
+              <option value="paid">Paid</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Worker</th>
+                <th>Phone</th>
+                <th>Days</th>
+                <th>Shifts</th>
+                <th>Total</th>
+                <th>Pending</th>
+                <th>Paid</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="workersTable"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="emptyState">
+          Add the first worker to begin tracking 10-15 day job runs.
+        </div>
+      </section>
+    </main>
+
+    <dialog class="drawer" id="workerDialog">
+      <div class="drawer__header">
+        <div>
+          <p class="eyebrow">Worker ledger</p>
+          <h2 id="dialogTitle">Worker</h2>
+        </div>
+        <button class="icon-button" id="closeDialog" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="drawer__summary" id="dialogSummary"></div>
+      <div class="table-wrap table-wrap--compact">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Shifts</th>
+              <th>Pay</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="entriesTable"></tbody>
+        </table>
+      </div>
+      <div class="drawer__footer">
+        <button class="button button--danger" id="deleteWorkerBtn" type="button">Delete Worker</button>
+      </div>
+    </dialog>
+
+    <template id="statusBadgeTemplate">
+      <span class="badge"></span>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
